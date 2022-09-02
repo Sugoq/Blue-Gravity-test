@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0b38cc15a1aa604d87c51bfd6aecc81, type: 3}
-  m_Name: Purple Shirt
+  m_Name: Yellow Pants 1
   m_EditorClassIdentifier: 
-  title: 
+  title: Camisa Hering Roxa
   price: 0
   sprite: {fileID: 0}
+  clotheType: 1
   redReplacer: {r: 0, g: 0, b: 0, a: 0}
-  greenReplacer: {r: 0, g: 0, b: 0, a: 0}
+  greenReplacer: {r: 0.27660847, g: 1, b: 0, a: 1}
   blueReplacer: {r: 0, g: 0, b: 0, a: 0}
   yellowReplacer: {r: 0, g: 0, b: 0, a: 0}
   purpleReplacer: {r: 0, g: 0, b: 0, a: 0}

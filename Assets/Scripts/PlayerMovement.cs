@@ -1,35 +1,20 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-    public static PlayerMovement instance;
-    
-    
+public class PlayerMovement : SingletonMonoBehaviour<PlayerMovement>
+{        
     [SerializeField] float moveVelocity;
-    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Rigidbody2D myRigidbody;
     [SerializeField] Animator anim;
-    private Vector2 movement;
-
-    private void Awake() => instance = this;
-
-    private void OnDestroy() => instance = null;
-    
-        
-    
-
-
 
     private void Update()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-              
+        anim.SetFloat("VelX", myRigidbody.velocity.x);
+        anim.SetFloat("VelY", myRigidbody.velocity.y);
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = moveVelocity * movement;
-        if (movement.magnitude < 0.001) return;
-        anim.SetFloat("VelX", movement.x);
-        anim.SetFloat("VelY", movement.y);
+        Vector2 velocity = moveVelocity * InputController.instance.movement.normalized;
+        myRigidbody.velocity = velocity;
     }
 }

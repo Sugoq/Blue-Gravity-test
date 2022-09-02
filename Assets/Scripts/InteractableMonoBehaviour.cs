@@ -1,4 +1,5 @@
 using UnityEngine;
+using Conditional = System.Diagnostics.ConditionalAttribute;
 
 public class InteractableMonoBehaviour : MonoBehaviour
 {
@@ -13,15 +14,16 @@ public class InteractableMonoBehaviour : MonoBehaviour
         InputController.instance.onInteract -= TryInteraction;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    [Conditional("UNITY_EDITOR")]
+    private void OnDrawGizmos()
     {
-            
+        Gizmos.DrawWireSphere(transform.position, distanceToInteract);    
     }
 
     protected void TryInteraction()
     {
-        if(Vector2.Distance((Vector2)transform.position, (Vector2)PlayerMovement.instance.transform.position) <= distanceToInteract)
+        if(Vector2.Distance(transform.position, PlayerMovement.instance.transform.position) <= distanceToInteract)
         {
             Interact();    
         }
@@ -31,6 +33,4 @@ public class InteractableMonoBehaviour : MonoBehaviour
     {
 
     }
-
-
 }
