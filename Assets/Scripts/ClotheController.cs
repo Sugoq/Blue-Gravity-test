@@ -1,25 +1,42 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 
 public class ClotheController : SingletonMonoBehaviour<ClotheController>
 {
-    public List<Clothe> clothes;
+    [HideInInspector] public List<Clothe> clothes;
     public SpriteRenderer spriteRenderer;
+    public SpriteRenderer previewRenderer;
     public Color skinColor;
 
-    private void Start()
+    public void LoadClothes(List<Clothe> clothes)
     {
+        this.clothes = clothes;
         UpdateClothes();
+    }
+
+    public string GetEquipString()
+    {
+        string s = string.Empty;
+        for (int i = 0; i < clothes.Count; i++)
+        {
+            s += $"{clothes[i].id}";
+
+            if (i < clothes.Count - 1)
+                s += "-";
+        }
+        return s;
     }
 
     public void AddClothe(Clothe clothe)
     {
         int index = clothes.FindIndex(x => x.clotheType == clothe.clotheType);
-        if (index >= 0) clothes.RemoveAt(index);
+        if (index >= 0)
+        {
+            clothes.RemoveAt(index);
+        }
         clothes.Add(clothe);
         UpdateClothes();
-        
+        MemoryController.instance.SaveEquippeds();
     }
 
     public void UpdateClothes()
@@ -28,13 +45,13 @@ public class ClotheController : SingletonMonoBehaviour<ClotheController>
         red = blue = green = yellow = purple = cyan = white = skinColor;
         foreach(Clothe clothe in clothes)
         {
-            if (clothe.redReplacer.a > 0.5f) red = clothe.redReplacer; 
+            if (clothe.t_shirt.a > 0.5f) red = clothe.t_shirt; 
             if (clothe.blueReplacer.a > 0.5f) blue = clothe.blueReplacer; 
-            if (clothe.greenReplacer.a > 0.5f) green = clothe.greenReplacer; 
-            if (clothe.yellowReplacer.a > 0.5f) yellow = clothe.yellowReplacer; 
-            if (clothe.purpleReplacer.a > 0.5f) purple = clothe.purpleReplacer; 
-            if (clothe.cyanReplacer.a > 0.5f) cyan = clothe.cyanReplacer; 
-            if (clothe.whiteReplacer.a > 0.5f) white = clothe.whiteReplacer; 
+            if (clothe.pants.a > 0.5f) green = clothe.pants; 
+            if (clothe.shirt.a > 0.5f) yellow = clothe.shirt; 
+            if (clothe.underShirt.a > 0.5f) purple = clothe.underShirt; 
+            if (clothe.shoes.a > 0.5f) cyan = clothe.shoes; 
+            if (clothe.skin.a > 0.5f) white = clothe.skin; 
         }
         Material material = spriteRenderer.material;
         material.SetColor("_RedReplacer", red);
@@ -43,14 +60,19 @@ public class ClotheController : SingletonMonoBehaviour<ClotheController>
         material.SetColor("_YellowReplacer", yellow);
         material.SetColor("_PurpleReplacer", purple);
         material.SetColor("_CyanReplacer", cyan);
-        material.SetColor("_WhiteReplacer", white);    
+        material.SetColor("_WhiteReplacer", white);
+        PreviewController.instance.UpdatePreview(null);
     }
 
     public void RemoveClothe(Clothe clothe)
     {
         int index = clothes.FindIndex(x => x.title == clothe.title);
-        if (index >= 0) clothes.RemoveAt(index);
+        if (index >= 0)
+        {
+            clothes.RemoveAt(index);
+        }
         UpdateClothes();
+        MemoryController.instance.SaveEquippeds();
     }
 
 

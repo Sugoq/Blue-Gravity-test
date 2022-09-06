@@ -1,19 +1,39 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class InputController : SingletonMonoBehaviour<InputController>
 {
-    [SerializeField] KeyCode interactKey;
+    private bool lockMovementOnInteraction;
 
     public Vector2 movement {get; private set;}
-    [HideInInspector] public Action onInteract;
-    
+    [SerializeField] KeyCode interactKey;
+    [SerializeField] KeyCode stopInteractKey;
+    [SerializeField] KeyCode inventoryKey;
+
+     public Action onInteract;
+     public Action stopInteract;
+
     void Update()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (!lockMovementOnInteraction) movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        else movement = Vector2.zero;
         if (Input.GetKeyDown(interactKey))
         {
             onInteract?.Invoke();        
         }
+        if (Input.GetKeyDown(stopInteractKey))
+        {
+            stopInteract?.Invoke();
+        }
+        if (Input.GetKeyDown(inventoryKey))
+        {
+            InventoryController.instance.UseInventory();
+        }
     }
+
+    public void LockMovement() => lockMovementOnInteraction = true;
+
+    public void UnlockMovement() => lockMovementOnInteraction = false;
 }

@@ -5,24 +5,25 @@ using UnityEngine;
 public class Clothe : ScriptableObject
 {
     [Header("Item Info")]
+    public int id;
     public string title;
     public int price;
     public Sprite sprite;
-    public ClotheType clotheType;
-    
+    public ClotheType clotheType;    
     
     [Header("Shader Info")]
-    public Color redReplacer;
-    public Color greenReplacer;
-    public Color blueReplacer;
-    public Color yellowReplacer;
-    public Color purpleReplacer;
-    public Color cyanReplacer;
-    public Color whiteReplacer;
+    [Header("Set alpha to 0 if the color is not used")]
+    public Color t_shirt;
+    public Color pants;
+    [HideInInspector]public Color blueReplacer;
+    public Color shirt;
+    public Color underShirt;
+    public Color shoes;
+    public Color skin;
 }
 
 public enum ClotheType
 {
-    SHIRT, PANTS, SHOES, T_SHIRT 
+    SHIRT, PANTS, SHOES
 }
 

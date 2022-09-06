@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b38cc15a1aa604d87c51bfd6aecc81, type: 3}
+  m_Name: Yellow T-Shirt
+  m_EditorClassIdentifier: 
+  id: 19
+  title: Yellow T-Shirt
+  price: 33
+  sprite: {fileID: -2120354224, guid: cce43ccba6702a4419d875b051fddf60, type: 3}
+  clotheType: 0
+  t_shirt: {r: 0.8773585, g: 0.80604106, b: 0.26817372, a: 1}
+  pants: {r: 0, g: 0, b: 0, a: 0}
+  blueReplacer: {r: 0, g: 0, b: 0, a: 0}
+  shirt: {r: 0, g: 0, b: 0, a: 0}
+  underShirt: {r: 0.8784314, g: 0.80784315, b: 0.26666668, a: 1}
+  shoes: {r: 0, g: 0, b: 0, a: 0}
+  skin: {r: 0, g: 0, b: 0, a: 0}
