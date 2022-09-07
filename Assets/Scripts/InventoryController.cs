@@ -6,8 +6,8 @@ public class InventoryController : SingletonMonoBehaviour<InventoryController>
     [SerializeField] private List<Slot> slots = new List<Slot>();
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private TMPro.TMP_Text moneyText; 
-    public int playerMoney;
     [SerializeField] private int storageCapacity;
+    public int playerMoney;
     private bool isInventoryOpen;
 
     private void Start()
@@ -20,10 +20,8 @@ public class InventoryController : SingletonMonoBehaviour<InventoryController>
         int index = 0;
         for(int i =0; i< list.Count; i++)
         {
-            if(list[i] > 500)
-            {
-                slots[index].ClearSlot();
-            }
+            //empty if its greater than 500
+            if(list[i] > 500) slots[index].ClearSlot();           
             else
             {
                 slots[index].clothe = MemoryController.instance.GetClotheById(list[i]);
@@ -76,7 +74,6 @@ public class InventoryController : SingletonMonoBehaviour<InventoryController>
     }
 
     public Slot GetSlotWithClothe(Clothe clothe) => slots.Find(x => x.hasClothe && x.clothe.id == clothe.id);
-
 
     public bool CanAddClothe(Clothe clothe, out PopUpError error)
     {
@@ -147,5 +144,4 @@ public class InventoryController : SingletonMonoBehaviour<InventoryController>
         inventoryPanel.SetActive(false);
         InputController.instance.UnlockMovement();
     }
-
 }

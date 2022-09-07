@@ -60,6 +60,7 @@ public class PopUpError
 {
     private PopUpError(string value) { Value = value; }
 
+
     public string Value { get; private set; }
 
     public static PopUpError INVENTORY_FULL { get { return new PopUpError(PopUp.instance.fullInventory); } }

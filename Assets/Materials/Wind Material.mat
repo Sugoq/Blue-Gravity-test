@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Preview
-  m_Shader: {fileID: -6465566751694194690, guid: 0fbbe1bdc9695d040a7b4d1dd557df3b, type: 3}
+  m_Name: Wind Material
+  m_Shader: {fileID: -6465566751694194690, guid: 97d08067b4f2f914299935d8824b1796, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 96f65e400dd66af48bd27f3c41a7dc77, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -40,16 +40,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors:
-    - _BlueReplacer: {r: 1, g: 0.9372549, b: 0.72156864, a: 1}
-    - _CyanReplacer: {r: 1, g: 0.9372549, b: 0.72156864, a: 1}
-    - _GreenReplacer: {r: 1, g: 0.9372549, b: 0.72156864, a: 1}
-    - _PurpleReplacer: {r: 1, g: 0.9372549, b: 0.72156864, a: 1}
-    - _RedReplacer: {r: 1, g: 0.9372549, b: 0.72156864, a: 1}
-    - _WhiteReplacer: {r: 1, g: 0.9372549, b: 0.72156864, a: 1}
-    - _YellowReplacer: {r: 1, g: 0.9372549, b: 0.72156864, a: 1}
+    - _WindIntensity: 0.3
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &3408291343485983139
+--- !u!114 &991890071871710442
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

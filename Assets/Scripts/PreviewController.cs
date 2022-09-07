@@ -1,16 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PreviewController : SingletonMonoBehaviour<PreviewController>
 {
     [SerializeField] private Image previewImage;
-    private Color skinColor;
-
-    private void Start()
-    {
-        skinColor = ClotheController.instance.skinColor;
-    }
 
     public void PreviewClothe(Clothe clothe)
     {

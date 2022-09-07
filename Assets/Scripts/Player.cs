@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Player : SingletonMonoBehaviour<Player>
 {        
-    [SerializeField] float moveVelocity;
-    [SerializeField] Rigidbody2D myRigidbody;
-    [SerializeField] Animator anim;
+    [SerializeField] private float moveVelocity;
+    [SerializeField] private Rigidbody2D myRigidbody;
+    [SerializeField] private Animator anim;
 
     private void Update()
     {

@@ -74,6 +74,4 @@ public class ClotheController : SingletonMonoBehaviour<ClotheController>
         UpdateClothes();
         MemoryController.instance.SaveEquippeds();
     }
-
-
 }

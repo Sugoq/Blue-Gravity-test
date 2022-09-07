@@ -16,7 +16,6 @@ public class InteractableMonoBehaviour : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        print("satori");
         InputController.instance.onInteract -= TryInteraction;
         InputController.instance.stopInteract -= TryToStopInteraction;
     }
@@ -41,22 +40,19 @@ public class InteractableMonoBehaviour : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, distanceToInteract);    
     }
-
+    
     public bool IsClose() => Vector2.Distance(transform.position, Player.instance.transform.position) <= distanceToInteract;
 
     protected void TryInteraction()
     {
         if(IsClose())
-        {
-            Interact();
-        }
+            Interact();               
     }
 
     protected void TryToStopInteraction()
     {               
         StopInteraction();       
     }
-
     
     protected virtual void StopInteraction()
     {

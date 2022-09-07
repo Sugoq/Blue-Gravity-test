@@ -31,15 +31,14 @@ public class ShopController : SingletonMonoBehaviour<ShopController>
         foreach(Slot slot in shopSlots)
         {
             if(slot.clothe == null)
-            {
-                Debug.Log("Check Slot's clothe");
                 return;
-            }
+                       
             slot.slotImage.sprite = slot.clothe.sprite;
             slot.label.text = slot.clothe.price.ToString();
             slot.title = slot.clothe.title;
         }
-    }    
+    } 
+    
     public void BuyClothe(Clothe clothe)
     {
         InventoryController.instance.AddClothe(clothe);
@@ -87,7 +86,4 @@ public class ShopController : SingletonMonoBehaviour<ShopController>
         shopPanel.SetActive(false);
         onCloseShop?.Invoke();
     }
-
-    
-
 }

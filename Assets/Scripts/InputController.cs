@@ -1,16 +1,13 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
-
 
 public class InputController : SingletonMonoBehaviour<InputController>
 {
     private bool lockMovementOnInteraction;
-
     public Vector2 movement {get; private set;}
-    [SerializeField] KeyCode interactKey;
-    [SerializeField] KeyCode stopInteractKey;
-    [SerializeField] KeyCode inventoryKey;
+    [SerializeField] private KeyCode interactKey;
+    [SerializeField] private KeyCode stopInteractKey;
+    [SerializeField] private KeyCode inventoryKey;
 
      public Action onInteract;
      public Action stopInteract;

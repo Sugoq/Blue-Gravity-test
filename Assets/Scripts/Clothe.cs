@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Clothe Asset", menuName = "ScriptableObjects/Clothe Asset", order = 1)]
@@ -26,4 +25,3 @@ public enum ClotheType
 {
     SHIRT, PANTS, SHOES
 }
-

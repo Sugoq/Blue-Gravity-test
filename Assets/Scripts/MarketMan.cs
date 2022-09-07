@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class MarketMan : InteractableMonoBehaviour
 {
     [SerializeField] private DialogueSequence dialogueSequence;    
@@ -20,7 +19,6 @@ public class MarketMan : InteractableMonoBehaviour
         ShopController.instance.onOpenShop -= OnShop;
         ShopController.instance.onCloseShop -= OnShop;
     }
-
 
     protected override void Interact()
     {

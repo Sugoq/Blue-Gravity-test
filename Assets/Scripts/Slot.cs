@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -19,9 +17,6 @@ public class Slot : MonoBehaviour
     public bool hasClothe => clothe != null;
     public TMP_Text label;
     public string title;
-
-    [Header("Check if its a invetory slot")]
-    [SerializeField] private bool isInventorySlot;
 
     [Header("If its being used as an inventory slot, value will be the count, otherwise it will be the price")]
     public int value;
@@ -87,5 +82,4 @@ public class Slot : MonoBehaviour
     {
         PreviewController.instance.Clear();
     }
-
 }
